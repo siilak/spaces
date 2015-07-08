@@ -168,6 +168,7 @@ function spaces_customtext_permission() {
     'administer string overrides' => array(
       'title' => t('administer string overrides'),
       'description' => t('TODO Add a description for \'administer string overrides\''),
+      'restrict access' => TRUE,
     ),
   );
 }

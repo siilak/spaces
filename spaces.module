@@ -781,7 +781,7 @@ function spaces_permission() {
   return array(
     'administer spaces' => array(
       'title' => t('administer spaces'),
-      'description' => t('TODO Add a description for \'administer spaces\''),
+      'description' => t('Perform administration tasks for spaces.'),
     ),
   );
 }

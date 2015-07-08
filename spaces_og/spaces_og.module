@@ -226,7 +226,7 @@ function spaces_og_permission() {
   return array(
     'view users outside groups' => array(
       'title' => t('view users outside groups'),
-      'description' => t('TODO Add a description for \'view users outside groups\''),
+      'description' => t('Allows group members to see other users outside of their own groups.'),
     ),
     'manage group space' => array(
       'title' => t('manage group space'),
@@ -269,9 +269,6 @@ function spaces_og_node_update($node, $op = 'update') {
       if (!empty($node->spaces_preset_og)) {
         $space->controllers->variable->set('spaces_preset_og', $node->spaces_preset_og);
       }
-
-
-
     }
 
     // Save PURL modifier.
@@ -589,9 +586,8 @@ function spaces_og_spaces_get_space_from_object($type, $object) {
       return spaces_load('og', $object->nid);
     }
     else if (og_is_group_content_type('node', $object->type)) {
-
-if (isset($object->{OG_AUDIENCE_FIELD}[LANGUAGE_NONE][0]['target_id'])) {
-       return spaces_load('og', $object->{OG_AUDIENCE_FIELD}[LANGUAGE_NONE][0]['target_id']);
+        if (isset($object->{OG_AUDIENCE_FIELD}[LANGUAGE_NONE][0]['target_id'])) {
+            return spaces_load('og', $object->{OG_AUDIENCE_FIELD}[LANGUAGE_NONE][0]['target_id']);
       }
     }
   }
